@@ -1,0 +1,12 @@
+{
+  "name": "discreetBin",
+  "description": "A one-shot pastebin-like service",
+  "author": "Nicolas Arkkila <nicolas@arkkila.fi>",
+  "license": "unlicense",
+  "dependencies": {
+    "express": "3.x.x",
+    "redis":"0.1.x",
+    "hiredis":"0.1.x"
+  },
+  "engine": "node >= 0.4.1"
+}
