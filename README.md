@@ -12,7 +12,7 @@ Ideas + components
 ===========
 * Redis
 * IP-filtering?
-* Secret-questions?
+* Secret-questions/hashes
 * SSL?
 * More security?
 
