@@ -10,7 +10,8 @@ Once a paste has been viewed, it is immediately destroyed.
 
 Ideas + components
 ===========
-* Redis
+* Storage: Redis
+* Front: Express/Sass/Angular
 * IP-filtering?
 * Secret-questions/hashes
 * SSL?
