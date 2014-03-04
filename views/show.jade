@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1 discreetBin
+  
+  h3= message
   h1= paste
+  form(method='post',action='/show')
+        input(type='submit',name='submit',value='Search' class="pure-button").submit-button
+        br
+        textarea(name='search', id='search' rows="10" cols="50" placeholder="Add your search here...")

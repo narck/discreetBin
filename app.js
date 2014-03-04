@@ -54,7 +54,7 @@ app.post('/create', function(req, res){
 app.get("/show/:id?", function (req, res) {
 	client.get(req.params.id, function(err, reply) {
 		if (reply===null || req.params.id === undefined) {
-			res.render('show');
+			res.render('show', {message: 'Paste not found! :('});
 		} else {
 			client.del(req.params.id, redis.print);
 			res.render('show', {paste: reply.toString()});
@@ -62,3 +62,8 @@ app.get("/show/:id?", function (req, res) {
 		};
 	});
 });
+
+app.post("/show", function(req, res) {
+
+	
+})
