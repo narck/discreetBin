@@ -37,7 +37,6 @@ app.get('/create', function(req, res) {
 app.post('/create', function(req, res){
 	crypto.randomBytes(48, function(err, buffer) {
 		var token = buffer.toString('base64');
-		
 		var hash = crypto.createHmac('sha1', token).update(req.body.paste).digest('hex');
 
 		client.set(hash, req.body.paste, redis.print);
@@ -50,11 +49,10 @@ app.post('/create', function(req, res){
 
 app.get("/show/:id?", function (req, res) {
 	client.get(req.params.id, function(err, reply) {
-
-		console.log(err);		
-		if (reply===null) {
+		if (reply===null || req.params.id === undefined) {
 			res.end("Please supply a valid id!");
 		} else {
+			client.del(req.params.id, redis.print);
 			res.send("The key value = "+reply.toString());	
 		};
 	});

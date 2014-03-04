@@ -7,10 +7,12 @@ lightweight pastebin for one-shot pastes
 Pastes are stored in volatile memory and no persistence model is supplied.
 Once a paste has been viewed, it is immediately destroyed.
 
+How-to
+===========
+To run **discreetBin**, you need a Redis server and node.js.
 
 Ideas + components
 ===========
-* Storage: Redis
 * Front: Express/Sass/Angular
 * IP-filtering?
 * Secret-questions/hashes
