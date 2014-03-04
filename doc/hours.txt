@@ -1,2 +1,3 @@
 Monday 03. March - 16-18: Project definition, studying node.js
 Monday 03. March - 22-24: coding, reading express.js, testing simple functionality
+Tuesday 04. March - 00-01: reading
