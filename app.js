@@ -4,6 +4,7 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var crypto = require('crypto');
+var jade = require('jade');
 var app = express();
 
 var redis = require("redis"),
@@ -12,26 +13,27 @@ var redis = require("redis"),
 /* CONFIGURATION */
 app.use(express.urlencoded());
 app.use(express.json());
+app.set('view engine', 'jade');
+app.set('views', __dirname+'/views/');
+
+
+/* RESET REDIS */
+
 
 app.set('port', process.env.PORT || 8080 );
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-var redisErrorHandle = function() {
-	client.on("error", function (err) {
-		res.send("Redis error"); 
-	});
-};
 
 /* ROUTES */
 
 app.get('/', function(req, res) {
-	res.sendfile('./views/index.html');
+	res.render('index', {title: 'edit your blog'})
 });
 
 app.get('/create', function(req, res) {
-	res.sendfile('./views/create.html');
+	res.render('create');
 });
 
 app.post('/create', function(req, res){
@@ -42,7 +44,9 @@ app.post('/create', function(req, res){
 		client.set(hash, req.body.paste, redis.print);
 		client.get(hash, function (err, reply) {
 			console.log(reply.toString());
-			res.end('Your hash is ' + hash);
+			// render success message
+			res.render('create', {message: 'Paste successfully created. Your hash is ' + hash});
+			//res.end('Your hash is ' + hash);
 		});
 	});
 });
@@ -50,10 +54,11 @@ app.post('/create', function(req, res){
 app.get("/show/:id?", function (req, res) {
 	client.get(req.params.id, function(err, reply) {
 		if (reply===null || req.params.id === undefined) {
-			res.end("Please supply a valid id!");
+			res.render('show');
 		} else {
 			client.del(req.params.id, redis.print);
-			res.send("The key value = "+reply.toString());	
+			res.render('show', {paste: reply.toString()});
+			//res.send("The key value = "+reply.toString());	
 		};
 	});
 });

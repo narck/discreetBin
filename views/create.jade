@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 Create a paste
+  h1= message
+  div#contact-area
+    form(method='post',action='/create')
+        input(type='submit',name='submit',value='Submit' class="pure-button").submit-button
+        br
+        textarea(name='paste', id='paste' rows="10" cols="50")
