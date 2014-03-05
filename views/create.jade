@@ -1,8 +1,9 @@
 extends layout
 
 block content
+ div(class="content")
   if !message
-   h3 Create a paste
+   div(class="content-head is-center") Create a paste
   h4= message
    div(class="contact-area")
     if !message

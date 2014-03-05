@@ -40,3 +40,7 @@ Ideas + components
 * More security?
 
 written as part of the University of Helsinki node.js mid-term course
+
+Live version
+===========
+See a live version at http://discreetbin.arkkila.fi/
