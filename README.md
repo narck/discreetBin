@@ -11,10 +11,23 @@ How-to
 ===========
 To run **discreetBin**, you need a Redis server and node.js.
 
-In directory root:
+If you don't have Redis, you can install it directly from most package managers or compile it yourself.
+The important part is to disable snapshots in **/etc/redis.conf** (if you're on OSX it's probably **/usr/local/etc/redis.conf**)
+From there find the default snapshot lines:
 ```shell
+save 900 1
+save 300 10
+save 60 10000
+```
+and comment them out with a leading #. Run Redis with `redis-server`. Redis typically runs `6379` at localhost. Note that this is configured to default in the node-redis Redis client.
+
+Follow this with 
+```shell
+git clone https://github.com/narck/discreetBin
+cd discreetBin
 node app.js
 ```
+and you're good to go. By configuration, you're free to set a port in your environment.
 
 
 Ideas + components

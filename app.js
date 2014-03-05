@@ -53,7 +53,7 @@ app.post('/create', function(req, res){
 
 app.get("/show/:id?", function (req, res) {
 	client.get(req.params.id, function(err, reply) {
-		if (reply===null) {
+		if (reply 	=== null) {
 			res.render('show', {message: 'Paste not found! :('});
 		} else if (req.params.id === undefined) {
 			res.render('show', {message: 'Paste not lel! :('});

@@ -2,3 +2,5 @@ Monday 03. March - 16-18: Project definition, studying node.js
 Monday 03. March - 22-24: coding, reading express.js, testing simple functionality
 Tuesday 04. March - 00-01: reading
 Tuesday 04. March - 12-15: coding, hashing, implementing Redis
+Tuesday 04. March - 18-20: templating, jade
+Tuesday 04. March - 20-21: templating
