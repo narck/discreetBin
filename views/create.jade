@@ -1,10 +1,13 @@
 extends layout
 
 block content
-  h1 Create a paste
-  h1= message
-  div#contact-area
-    form(method='post',action='/create')
-        input(type='submit',name='submit',value='Submit' class="pure-button").submit-button
-        br
+  if !message
+   h3 Create a paste
+  h4= message
+   div(class="contact-area")
+    if !message
+     form(method='post',action='/create')
         textarea(name='paste', id='paste' rows="10" cols="50" placeholder="Add your paste here...")
+        br
+        br
+        input(type='submit',name='submit',value='Submit' class="pure-button").submit-button

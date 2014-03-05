@@ -45,7 +45,7 @@ app.post('/create', function(req, res){
 		client.get(substr, function (err, reply) {
 			console.log(reply.toString());
 			// render success message
-			res.render('create', {message: 'Paste successfully created. Your hash is ' + substr});
+			res.render('create', {message: 'Paste successfully created. Your paste ID is ' + substr});
 			//res.end('Your hash is ' + hash);
 		});
 	});
