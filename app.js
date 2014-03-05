@@ -53,8 +53,10 @@ app.post('/create', function(req, res){
 
 app.get("/show/:id?", function (req, res) {
 	client.get(req.params.id, function(err, reply) {
-		if (reply===null || req.params.id === undefined) {
+		if (reply===null) {
 			res.render('show', {message: 'Paste not found! :('});
+		} else if (req.params.id === undefined) {
+			res.render('show', {message: 'Paste not lel! :('});
 		} else {
 			client.del(req.params.id, redis.print);
 			res.render('show', {paste: reply.toString()});
@@ -65,5 +67,5 @@ app.get("/show/:id?", function (req, res) {
 
 app.post("/show", function(req, res) {
 
-	
+
 })

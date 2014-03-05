@@ -11,6 +11,12 @@ How-to
 ===========
 To run **discreetBin**, you need a Redis server and node.js.
 
+In directory root:
+```shell
+node app.js
+```
+
+
 Ideas + components
 ===========
 * Front: Express/Sass/Angular
