@@ -38,14 +38,21 @@ app.get('/create', function(req, res) {
 
 app.post('/create', function(req, res){
 	crypto.randomBytes(48, function(err, buffer) {
+
+		// hash the key, no need for decryption
 		var token = buffer.toString('base64');
 		var hash = crypto.createHmac('sha1', token).update(req.body.paste).digest('hex');
-		var substr = hash.substring(0,7);
-		client.set(substr, req.body.paste, redis.print);
-		client.get(substr, function (err, reply) {
+		var key = hash.substring(0,7);
+
+		//hash the value
+		var value = encrypt(req.body.paste);
+
+		client.set(key, value, redis.print);
+		client.get(key, function (err, reply) {
 			console.log(reply.toString());
 			// render success message
-			res.render('create', {message: 'Paste successfully created. Your paste ID is ' + substr});
+
+			res.render('create', {message: 'Paste successfully created. Your hash is ' + key});
 			//res.end('Your hash is ' + hash);
 		});
 	});
@@ -58,24 +65,41 @@ app.get("/show/:id?", function (req, res) {
 		} else if (reply === null) {
 			res.render('show', {message: 'Paste ' + req.params.id + ' not found ;_;'});
 		} else {
-			client.del(req.params.id, redis.print);
-			res.render('show', {paste: reply.toString()});
-			//res.send("The key value = "+reply.toString());	
-		};
+			client.del(req.body.search, redis.print);
+			res.render('show', {paste: decrypt(reply.toString())});
+		}
 	});
 });
 
 app.post("/show", function(req, res) {
-	//console.log(req.body.search);
 	client.get(req.body.search, function(err, reply) {
 		if (reply === null) {
 			res.render('show', {message: 'Paste ' + req.body.search + ' not found. ;_;'});
 		} else {
 			client.del(req.body.search, redis.print);
-			res.render('show', {paste: reply.toString()});
-	}
-
+			res.render('show', {paste: decrypt(reply.toString())});
+		}
 	});
+});
 
 
-})
+// move ;)
+
+/* FUNCTIONS */
+
+function encrypt(text){
+  var cipher = crypto.createCipher('aes-256-cbc','d6F3Efeq')
+  var crypted = cipher.update(text,'utf8','hex')
+  crypted += cipher.final('hex');
+  return crypted;
+}
+
+function decrypt(text){
+  var decipher = crypto.createDecipher('aes-256-cbc','d6F3Efeq')
+  var dec = decipher.update(text,'hex','utf8')
+  dec += decipher.final('utf8');
+  return dec;
+}
+
+var hw = encrypt("hello world")
+decrypt(hw)
