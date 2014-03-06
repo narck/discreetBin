@@ -32,12 +32,8 @@ and you're good to go. By configuration, you're free to set a port in your envir
 
 Ideas + components
 ===========
-* Client-side hashing
-* Front: Express/Sass/Angular
-* IP-filtering?
-* Secret-questions/hashes
-* SSL?
-* More security?
+* Passwords/SSL
+* API
 
 written as part of the University of Helsinki node.js mid-term course
 

@@ -7,3 +7,4 @@ Tuesday 04. March - 20-21: templating
 Wednesday 05. March - 18-20: Researching client-side hashing, Redis configuration, wrote some readme
 Wednesday 05. March - 22-24: Cleaning up templates
 Thursday 06. March - 00-01: First deployment
+Thursday 06. March - 11-13: Scrapped client-side hashing, crypto stuff
