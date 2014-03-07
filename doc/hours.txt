@@ -8,3 +8,7 @@ Wednesday 05. March - 18-20: Researching client-side hashing, Redis configuratio
 Wednesday 05. March - 22-24: Cleaning up templates
 Thursday 06. March - 00-01: First deployment
 Thursday 06. March - 11-13: Scrapped client-side hashing, crypto stuff
+Thursday 06. March - 17-18: researching jade
+Thursday 06. March - 18-19: client-side scripting
+Friday 08. March - 13-14: more client-side scripting
+Friday 08. March - 21-23: more client-side scripting, cleanup

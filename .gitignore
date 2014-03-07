@@ -4,3 +4,4 @@ node_modules/
 test.js
 doc/dump.rdb
 dump.rdb
+views/test.jade

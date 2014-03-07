@@ -1,6 +1,6 @@
 /* REQUIRES */
 var express = require('express');
-var routes = require('./routes');
+//var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var crypto = require('crypto');
@@ -50,10 +50,8 @@ app.post('/create', function(req, res){
 		client.set(key, value, redis.print);
 		client.get(key, function (err, reply) {
 			console.log(reply.toString());
-			// render success message
 
 			res.render('create', {message: 'Paste successfully created. Your hash is ' + key});
-			//res.end('Your hash is ' + hash);
 		});
 	});
 });
@@ -83,10 +81,25 @@ app.post("/show", function(req, res) {
 });
 
 
-// move ;)
+app.get("/test", function(req, res) {
+	res.render('test');
+
+});
+
+app.post("/test", function(req, res) {
+	console.log(req.body.fname)
+	client.set("asd", req.body.fname, redis.print);
+	client.get("asd", function(err, reply) {
+		res.render('test', {message: reply})
+	});
+	
+});
+
 
 /* FUNCTIONS */
-
+ 
+// remove this
+// add pw salt
 function encrypt(text){
   var cipher = crypto.createCipher('aes-256-cbc','d6F3Efeq')
   var crypted = cipher.update(text,'utf8','hex')
@@ -100,6 +113,3 @@ function decrypt(text){
   dec += decipher.final('utf8');
   return dec;
 }
-
-var hw = encrypt("hello world")
-decrypt(hw)
