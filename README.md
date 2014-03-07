@@ -32,8 +32,9 @@ and you're good to go. By configuration, you're free to set a port in your envir
 
 Ideas + components
 ===========
-* Passwords/SSL
-* API
+* Expiry
+* SSL
+* API?
 
 written as part of the University of Helsinki node.js mid-term course
 
