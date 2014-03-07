@@ -30,8 +30,9 @@ node app.js
 and you're good to go. By configuration, you're free to set a port in your environment.
 
 
-Ideas + components
+To-do
 ===========
+* Fix URLS
 * Expiry
 * SSL
 * API?
