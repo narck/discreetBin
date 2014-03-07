@@ -37,8 +37,10 @@ To-do
 * SSL
 * API?
 
-written as part of the University of Helsinki node.js mid-term course
-
 Live version
 ===========
 See a live version at http://discreetbin.arkkila.fi/
+
+License
+===========
+[unlicense](http://unlicense.org/). This project was written for the University of Helsinki mid-term node.js course.
