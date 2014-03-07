@@ -5,6 +5,7 @@ var http = require('http');
 var path = require('path');
 var crypto = require('crypto');
 var jade = require('jade');
+var url = require('url');
 var app = express();
 
 var redis = require("redis"),
@@ -50,8 +51,8 @@ app.post('/create', function(req, res){
 		client.set(key, value, redis.print);
 		client.get(key, function (err, reply) {
 			console.log(reply.toString());
-
-			res.render('create', {message: 'Paste successfully created. Your hash is ' + key});
+			var fullUrl = 'http://' + req.get('host');
+			res.render('create', {message: key, url: fullUrl});
 		});
 	});
 });

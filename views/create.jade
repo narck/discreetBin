@@ -6,15 +6,21 @@ block content
     function prepare(str, key) {
       document.forms[0].paste.value = encrypt(str,key);
     }
+  if message
+    p Your paste has been created succesfully. Here's a link: 
+    input(type="text" value="#{url}/show/#{message}" style="width:315px;" readonly)
+    br
+    br
+    h3(style="color:red;") Warning!
+    p Clicking this link or viewing the paste will destroy it permanently!
+    a(href="/show/#{message}") #{url}/show/#{message}
   if !message
     div(class="content-head is-center") Create a paste
-  h4= message
     div(class="contact-area")
-    if !message
       input(type="text" id="password" placeholder="Add a password (optional)...")
       form(onsubmit="prepare(paste.value, password.value)" method='post',action='/create' name="pastebin")
         br
-        textarea(name='paste', id='paste' rows="10" cols="50" placeholder="Add your paste here...")
+        textarea(name='paste' id='paste' rows="10" cols="50" placeholder="Add your paste here...")
         br
         br
-        input(type='submit',name='submit',value='Submit' class="pure-button").submit-button
+        input(type='submit' name='submit',value='Submit' class="pure-button").submit-button

@@ -5,9 +5,15 @@ block content
   script.
     function reveal(key) {
       var paste = document.getElementById('paste').firstChild.nodeValue;
-      document.getElementById('paste').firstChild.nodeValue = decrypt(paste, key);
-    }  
-  h4= message
+      var decrypted = decrypt(paste, key);
+      document.getElementById('reveal').disabled = true
+      if (decrypted == "") {
+        document.getElementById('msg').firstChild.nodeValue = "Wrong password.";
+      } else {
+        document.getElementById('paste').firstChild.nodeValue = decrypt(paste, key);
+      }
+    }
+  h4(id="msg")= message
   if !paste
     div(class="content-head is-center") Search for a paste
     
@@ -20,4 +26,4 @@ block content
     pre(style="text-align:left;font-size:0.7em;width:50%;margin-left:25%;padding-top:5%;padding-bottom:5%;" id="paste")= paste
     input(type="text" name="password" id="password" value="")
     br
-    input(type="submit" onClick="reveal(password.value)" class="pure-button" value="reveal")
+    input(type="submit" onClick="reveal(password.value)" class="pure-button" value="reveal" id="reveal")
