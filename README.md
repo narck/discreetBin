@@ -1,5 +1,6 @@
 discreetBin
 ===========
+[tuntikirjanpito](https://github.com/narck/doc/hours.txt)
 
 lightweight pastebin for one-shot pastes
 
@@ -32,10 +33,8 @@ and you're good to go. By configuration, you're free to set a port in your envir
 
 To-do
 ===========
-* Fix URLS
 * Expiry
 * SSL
-* API?
 
 Live version
 ===========
