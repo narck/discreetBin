@@ -1,6 +1,6 @@
 discreetBin
 ===========
-[tuntikirjanpito](https://github.com/narck/doc/hours.txt)
+[tuntikirjanpito](https://github.com/narck/discreetBin/blob/master/doc/hours.txt)
 
 lightweight pastebin for one-shot pastes
 
