@@ -17,13 +17,13 @@ block content
   if !paste
     div(class="content-head is-center") Search for a paste
     
-    form(method='post',action='/show')
+    form(method='post',action='/paste/show')
       input(type="textarea" name="search" id="search" placeholder="Insert paste id here...")
       br
       br
       input(type='submit', name='submit' value='Search' class="pure-button").submit-button
   if paste
-    pre(style="text-align:left;font-size:0.7em;width:50%;margin-left:25%;padding-top:5%;padding-bottom:5%;" id="paste")= paste
+    pre(style="text-align:left;font-size:0.7em;width:50%;margin-left:25%;padding-top:5%;padding-bottom:5%;text-transform: none;" id="paste")= paste
     input(type="text" name="password" id="password" value="")
     br
     input(type="submit" onClick="reveal(password.value)" class="pure-button" value="reveal" id="reveal")

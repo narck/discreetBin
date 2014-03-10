@@ -1,15 +1,26 @@
 Monday 03. March - 16-18: Project definition, studying node.js
 Monday 03. March - 22-24: coding, reading express.js, testing simple functionality
+	total: 4h
+
 Tuesday 04. March - 00-01: reading
 Tuesday 04. March - 12-15: coding, hashing, implementing Redis
 Tuesday 04. March - 18-20: templating, jade
 Tuesday 04. March - 20-21: templating
+	total: 7h
+
 Wednesday 05. March - 18-20: Researching client-side hashing, Redis configuration, wrote some readme
 Wednesday 05. March - 22-24: Cleaning up templates
+	total: 4h
+
 Thursday 06. March - 00-01: First deployment
 Thursday 06. March - 11-13: Scrapped client-side hashing, crypto stuff
 Thursday 06. March - 17-18: researching jade
 Thursday 06. March - 18-19: client-side scripting
+	total: 5h
+
 Friday 07. March - 13-14: more client-side scripting
 Friday 07. March - 21-23: more client-side scripting, cleanup
+	total: 3h
+
 Saturday 08. March - 00-02: client side hashing implemented, cleanup
+	total: 2h
