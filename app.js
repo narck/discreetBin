@@ -56,7 +56,7 @@ app.get("/paste/show/:id?", function (req, res) {
 		} else if (reply === null) {
 			res.render('show', {message: 'Paste ' + req.params.id + ' not found ;_;'});
 		} else {
-			client.del(req.body.search, redis.print);
+			client.del(req.params.id, redis.print);
 			res.render('show', {paste: reply.toString()});
 		}
 	});
