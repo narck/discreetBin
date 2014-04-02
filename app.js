@@ -2,9 +2,11 @@
 var express = require('express');
 var http = require('http');
 var crypto = require('crypto');
+var AES = require("crypto-js/aes");
 var jade = require('jade');
 var url = require('url');
 var app = express();
+
 var redis = require("redis"),
         client = redis.createClient();
 
@@ -57,7 +59,8 @@ app.get("/paste/show/:id?", function (req, res) {
 			res.render('show', {message: 'Paste ' + req.params.id + ' not found ;_;'});
 		} else {
 			client.del(req.params.id, redis.print);
-			res.render('show', {paste: reply.toString()});
+			//console.log(AES.decrypt(reply.toString(),"").toString())
+			res.render('show', {paste: reply.toString(), hasPassword: false});
 		}
 	});
 });
