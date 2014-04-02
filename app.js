@@ -23,7 +23,7 @@ http.createServer(app).listen(app.get('port'), function(){
 /* ROUTES */
 
 app.get('/', function(req, res) {
-	res.render('index')
+	res.render('index');
 });
 
 app.get('/paste/create', function(req, res) {
