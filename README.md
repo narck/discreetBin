@@ -31,15 +31,6 @@ node app.js
 and you're good to go. By configuration, you're free to set a port in your environment.
 
 
-To-do
-===========
-* Expiry
-* SSL
-
-Live version
-===========
-See a live version at http://discreetbin.arkkila.fi/
-
 License
 ===========
 [unlicense](http://unlicense.org/). This project was written for the University of Helsinki mid-term node.js course.
